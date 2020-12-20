@@ -1,0 +1,43 @@
+from parlai.scripts.train_model import TrainModel
+
+TrainModel.main(
+    task='blended_skill_talk,wizard_of_wikipedia,convai2:normalized,empathetic_dialogues',
+    model='transformer/generator',
+
+    init_model='zoo:blender/blender_90M/model',
+    multitask_weights=[1,3,3,3],
+    dict_file='zoo:blender/blender_90M/model.dict',
+    embedding_size=512, n_layers=8, ffn_size=2048, dropout=0.1,
+    n_heads=16,
+    learn_positional_embeddings=True,
+    n_positions=512,
+    variant='xlm',
+    activation='gelu',
+    skip_generation=True,
+    fp16=True,
+    text_truncate=512,
+    label_truncate=128,
+    dict_tokenizer='bpe',
+    dict_lower=True,
+    lr=1e-6,
+    optimizer='adamax',
+    lr_scheduler='reduceonplateau',
+    gradient_clip=0.1,
+    veps=0.25,
+    betas=[0.9, 0.999],
+    update_freq=1,
+    attention_dropout=0.0,
+    relu_dropout=0.0,
+    vp=15,
+    stim=60,
+    vme=20000,
+    bs=16,
+    validation_metric='ppl',
+    max_train_time=172800, validation_every_n_epochs=0.25,
+    vmm='min',
+    save_after_valid=True,
+    tensorboard_log=True,
+    tensorboard_logdir='logs',
+    model_file='model_fine/model'
+
+)
