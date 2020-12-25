@@ -33,7 +33,7 @@ TrainModel.main(
     vme=20000,
     bs=16,
     validation_metric='ppl',
-    max_train_time=172800, validation_every_n_epochs=0.25,
+    max_train_time=129000, validation_every_n_epochs=0.25,
     vmm='min',
     save_after_valid=True,
     tensorboard_log=True,
